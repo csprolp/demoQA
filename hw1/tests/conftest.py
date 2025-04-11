@@ -3,10 +3,11 @@ from selenium import webdriver
 from selene import browser
 from selenium import webdriver
 from dotenv import load_dotenv
-from selenium.webdriver.chrome.options import Options
 import os
+from selenium.webdriver.chrome.options import Options
 
-from utils import attach
+
+from utils.attach import add_html, add_logs, add_video,add_screenshot
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -45,8 +46,8 @@ def config_browser():
     browser.config.driver_options = driver_options
 
     yield browser
-    attach.add_html(browser)
-    attach.add_screenshot(browser)
-    attach.add_logs(browser)
-    attach.add_video(browser)
+    add_html(browser)
+    add_screenshot(browser)
+    add_logs(browser)
+    add_video(browser)
     browser.quit()
