@@ -51,6 +51,7 @@ class RegistrationForm:
             browser.element("#currentAddress").type(user.address)
 
         if user.state:
+            browser.element("#state").perform(command.js.scroll_into_view)
             browser.element("#state").click()
             browser.all("[id^=react-select][id*=option]").element_by(
                 have.exact_text(user.state)
