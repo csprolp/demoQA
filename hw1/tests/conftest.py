@@ -1,12 +1,12 @@
 import pytest
 from selenium import webdriver
 from selene import browser
-
-from utils import attach
 from selenium import webdriver
 from dotenv import load_dotenv
 from selenium.webdriver.chrome.options import Options
 import os
+
+from utils import attach
 
 
 @pytest.fixture(scope="session", autouse=True)
