@@ -7,7 +7,7 @@ import os
 from selenium.webdriver.chrome.options import Options
 
 
-from utils.attach import add_html, add_logs, add_video,add_screenshot
+from utils.attach import add_html, add_logs, add_video, add_screenshot
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -49,5 +49,5 @@ def config_browser():
     add_html(browser)
     add_screenshot(browser)
     add_logs(browser)
-    add_video(browser)
+    add_video(browser, selenoid_url)
     browser.quit()
