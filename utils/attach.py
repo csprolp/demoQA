@@ -1,6 +1,8 @@
 import allure
 from allure_commons.types import AttachmentType
 
+from hw1.tests.conftest import selenoid_url
+
 
 # Скриншоты
 def add_screenshot(browser):
