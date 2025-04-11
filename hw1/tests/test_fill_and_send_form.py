@@ -24,7 +24,9 @@ def testFillAndSendForm():
     browser.element("#subjectsInput").type("Commerce")
     browser.element(".subjects-auto-complete__menu").click()
     browser.element("#hobbies-checkbox-1").perform(command.js.click)
-    browser.element("#uploadPicture").send_keys(os.path.abspath("../files/picture.jpg"))
+    browser.element("#uploadPicture").send_keys(
+        os.path.abspath("../../files/picture.jpg")
+    )
     browser.element("#currentAddress").type("Unique address")
     browser.element("#state").click().element("#react-select-3-option-0").click()
     # разобраться почему не работает такой поиск элемента(выбирает с другим текстом)
