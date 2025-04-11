@@ -1,6 +1,7 @@
 import calendar
 import os
 
+import allure
 from selene import browser, have, command
 
 from hw2.models.user import User
@@ -11,7 +12,7 @@ class RegistrationForm:
     def open(self):
         browser.open("/automation-practice-form")
         return self
-
+    @allure.step('Заполнение формы')
     def register(self, user: User):
         browser.element("#firstName").type(user.first_name)
         browser.element("#lastName").type(user.last_name)
@@ -64,7 +65,7 @@ class RegistrationForm:
             ).click()
 
         browser.element("#submit").click()
-
+    @allure.step('Проверка формы')
     def register_user(self, user: User):
         result = browser.element(".table").all("td").even
         result.should(
