@@ -1,11 +1,9 @@
 import os
-
 import pytest
 from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
 from utils.attach import add_html, add_logs, add_video, add_screenshot
 
 
@@ -34,8 +32,6 @@ def config_browser():
         command_executor=f"https://{selenoid_login}:{selenoid_pass}@{selenoid_url}/wd/hub",
         options=options,
     )
-
-    browser.config.driver = driver
 
     browser.config.driver = driver
     browser.config.base_url = "https://demoqa.com"
